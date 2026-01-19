@@ -67,7 +67,7 @@ async def generate_letter(data: ParticipantData):
         # Call Anthropic API with Reso's system prompt
         message = client.messages.create(
             model="claude-sonnet-4-20250514",
-            max_tokens=1500,
+            max_tokens=800,
             system=get_reso_system_prompt(data.language),
             messages=[
                 {
@@ -143,7 +143,7 @@ Der Brief soll:
 1. Mit "Hi {data.firstName}," beginnen
 2. Dich kurz als Reso vorstellen (ca. 2-3 Sätze)
 3. Klarstellen, dass die Briefe freiwillig sind und keinen Einfluss auf Haft/Auflagen haben
-4. DIREKT und KONKRET auf 1-2 der genannten Themen eingehen: {data.topics}
+4. DIREKT und KONKRET auf die genannten Themen eingehen: {data.topics}
 5. Einen kurzen Ausblick auf kommende Briefe geben
 6. Mit "Viele Grüße" und dann "Reso" (in neuer Zeile) enden
 
